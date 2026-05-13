@@ -8,16 +8,38 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <form class="form">
+  <label>
+    <input type="text" name="search-text" placeholder="Search images..." required>
+  </label>
+  <button type="submit">Search</button>
+</form>
+<span class="loader is-hidden"></span>
+<ul class="gallery"></ul>
     </main>
 
-    <load src="./partials/footer.html" />
+    <footer class="footer">
+  <div class="container">
+    <p class="footer-desc">
+      Made with ✨ by
+      <a
+        class="footer-link"
+        href="https://goit.global/ua/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GoIT team
+      </a>
+    </p>
+  </div>
+</footer>
+
 
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/pixabay-api.js"></script>
+    <script type="module" src="./js/render-functions.js"></script>
   </body>
 </html>

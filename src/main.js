@@ -2,7 +2,7 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 import { getImagesByQuery } from "./js/pixabay-api";
-import { createGallery, clearGallery,gallery,loader,showLoader,hideLoader } from "./js/render-functions";
+import { createGallery, clearGallery,showLoader,hideLoader } from "./js/render-functions";
 
 
 const form = document.querySelector(".form")
@@ -26,8 +26,8 @@ function handleSubmit(event){
         showLoader();
         
         getImagesByQuery(inputValue)
-        .then(({data:{hits}})=>{
-            if(hits.length===0){
+        .then((data)=>{
+            if(data.hits.length===0){
                 iziToast.error({
     position:`topRight`,
     message: 'Sorry, there are no images matching your search query. Please try again!',
@@ -36,7 +36,7 @@ function handleSubmit(event){
 });
 
             } else{
-                createGallery(hits)
+                createGallery(data.hits)
                 
             }
         })
